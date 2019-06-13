@@ -11,27 +11,57 @@ namespace XREChall
         static void Main(string[] args)
         {
 
-            decimal[] price = { 2.90m, 5.40m, 8.90m };
-            int[] noOfItemsInPacks = { 4, 10, 15 };     // Pack size A, B, C
-            int[] noOfPacksOrdered = { 100, 100, 100 };   // initiate with a large number 
-            int[] maxNoOfPacksEach = { 0, 0, 0 };  // initiate only
+           // decimal[] price = { 2.90m, 5.40m, 8.90m };
 
-            Console.WriteLine(" No of Items in each pack1-{0}, pack2-{1}, pack3-{2}", noOfItemsInPacks[0], noOfItemsInPacks[1], noOfItemsInPacks[2]);
-            Console.WriteLine(" Enter total number required ");
-            int totalRequiredNumber = int.Parse(Console.ReadLine());
+            #region SH3 
+            int[] noOfItemsInPacksSH3 = { 3, 5, 0 };     // Pack size A, B, C            
+            Console.WriteLine("\n No of SH3 Items in each pack1-{0}, pack2-{1}, pack3-{2}", 
+                     noOfItemsInPacksSH3[0], noOfItemsInPacksSH3[1], noOfItemsInPacksSH3[2]);
+            
+            Console.Write(" Enter total number required SH3   ");
+            int totalRequiredNumberSH3 = int.Parse(Console.ReadLine());
 
-            int[] noOfYT2Packs = GetOptiumNoOfPacksSingleItem(noOfItemsInPacks, noOfPacksOrdered, maxNoOfPacksEach, totalRequiredNumber);
+            int[] noOfSH3PacksToShip = GetOptiumNoOfPacksSingleItem(noOfItemsInPacksSH3, totalRequiredNumberSH3);
+            Console.WriteLine("Selected pack combination {0}, {1}, {2}", noOfSH3PacksToShip[0], noOfSH3PacksToShip[1], noOfSH3PacksToShip[2]);
+            #endregion
+            // YT2
+            #region: YT2
+            int[] noOfItemsInPacksYT2 = { 4, 10, 15 };     // Pack size A, B, C   
+            Console.WriteLine("\n No of YT2 Items in each pack1-{0}, pack2-{1}, pack3-{2}", 
+                noOfItemsInPacksYT2[0], noOfItemsInPacksYT2[1], noOfItemsInPacksYT2[2]);
+            Console.Write(" Enter total number required YT2   ");
+            int totalRequiredNumberYT2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Selected pack combination {0}, {1}, {2}", noOfYT2Packs[0], noOfYT2Packs[1], noOfYT2Packs[2]);
-            Console.WriteLine("Value of noOfPacksOrdered after the method {0}, {1}, {2}", noOfPacksOrdered[0], noOfPacksOrdered[1], noOfPacksOrdered[2]);
+            int[] noOfYT2PacksToShip = GetOptiumNoOfPacksSingleItem(noOfItemsInPacksYT2,  totalRequiredNumberYT2);
+            Console.WriteLine("Selected pack combination {0}, {1}, {2}", noOfYT2PacksToShip[0], noOfYT2PacksToShip[1], noOfYT2PacksToShip[2]);
+            #endregion
+
+            #region TR
+
+            int[] noOfItemsInPacksTR = { 3, 5, 9 };     // Pack size A, B, C   
+            Console.WriteLine("\n No of TR Items in each pack1-{0}, pack2-{1}, pack3-{2}",
+                noOfItemsInPacksTR[0], noOfItemsInPacksTR[1], noOfItemsInPacksTR[2]);
+            Console.Write(" Enter total number required TR   ");
+            int totalRequiredNumberTR  = int.Parse(Console.ReadLine());
+
+            int[] noOfTRPacksToShip = GetOptiumNoOfPacksSingleItem(noOfItemsInPacksTR, totalRequiredNumberTR);
+            Console.WriteLine("Selected pack combination {0}, {1}, {2}", noOfTRPacksToShip[0], noOfTRPacksToShip[1], noOfTRPacksToShip[2]);
+
+            #endregion
+
+
+
+
 
             // Yoghurt YT2 4 @ $4.95, 10 @ $9.95, 15 @ $13.95
 
             Console.Read();
         }
 
-        private static int[]  GetOptiumNoOfPacksSingleItem(int[] noOfItemsInPacks, int[] noOfPacksToOrder, int[] maxNoOfPacksEach, int totalRequiredNumber)
+        private static int[]  GetOptiumNoOfPacksSingleItem(int[] noOfItemsInPacks,   int totalRequiredNumber)
         {
+            int[] noOfPacksToOrder = { 100, 100, 100 };   // initiate with a large number 
+            int[] maxNoOfPacksEach = { 0, 0, 0 };  // initiate only
 
             // Calc Max number of packs of each pack by dividing total number by No in each pack
             for (int i = 0; i < noOfPacksToOrder.Length; i++)
