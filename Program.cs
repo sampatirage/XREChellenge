@@ -10,7 +10,13 @@ namespace XREChall
     {
         static void Main(string[] args)
         {
-
+            /* Notes : 
+             *  Pack sizes are stored in an array of size 3, if it is only less than that we can set them to 0
+             *  Number of products limted to 3, - Just a proof of concept.
+             *  Assumption: Under input 18 YT2 is considerd a typo as the output is for 28
+             *  In using the program, Need to enter each product qty followed by Code followed by  Enter
+             *  
+            */
             CartItem[] cartItems = new CartItem[3];   // Initiate array of cart items
             for (int i = 0; i < cartItems.Length; i++)
             {

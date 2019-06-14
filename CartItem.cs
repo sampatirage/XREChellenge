@@ -101,11 +101,7 @@ namespace XREChall
                 {             // Print if no of packs is > 0
                     Console.WriteLine(" {0}x{1} packs. @ Price ${2} ", noOfPacksToOrder[i], NoOfItemsInPacks[i], Price[i]);
                     totalPrice += noOfPacksToOrder[i] * Price[i];
-                }
-                else
-                {
-                    Console.WriteLine(" Something went wrong, May be we cannot provide the no of packs to match quantity");
-                }
+                }               
             }
             Console.WriteLine(" Total price =" + totalPrice + "\n");
         }
