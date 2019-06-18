@@ -105,7 +105,9 @@ namespace XREChall
                    // Console.WriteLine(" CartItem " + cartItemSequenNumberMatch + " matches code " + codeOfItemsRequired[i]);
                     int[] noOfPacksToShip =
                     cartItems[cartItemSequenNumberMatch].GetOptiumNoOfPacksSingleItem(noOfItemsRequired[i]);
-                    cartItems[cartItemSequenNumberMatch].PrintPackDetails();
+                    string result = cartItems[cartItemSequenNumberMatch].PrintPackDetails();
+                    Console.WriteLine(result);
+
                 }
                 else
                 {

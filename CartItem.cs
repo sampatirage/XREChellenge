@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XREChall
 {
-    class CartItem
+    public class CartItem
     {
         public int[] NoOfItemsInPacks { get; set; }
         public decimal[] Price { get; set; }
@@ -91,7 +91,7 @@ namespace XREChall
 
 
 
-        public void PrintPackDetails() // int[] noOfItemsInPacks, decimal[] price, int[] noOfPacksToShip, string productCode)
+        public string  PrintPackDetails() // int[] noOfItemsInPacks, decimal[] price, int[] noOfPacksToShip, string productCode)
         {
             Console.WriteLine(" Product " + ProductCode);
             decimal totalPrice = 0m;
@@ -103,7 +103,7 @@ namespace XREChall
                     totalPrice += noOfPacksToOrder[i] * Price[i];
                 }               
             }
-            Console.WriteLine(" Total price =" + totalPrice + "\n");
+            return ("Total price =" + totalPrice);
         }
 
     }
